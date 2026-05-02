@@ -16,9 +16,14 @@
     box-sizing: border-box;
 }
 
+/* ✅ FIXED BODY BACKGROUND */
 body {
-    height: 100vh;
-    background: url("Images/Background.png") no-repeat center center/cover;
+    min-height: 100vh;
+    background-image: url("Images/Background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* important for mobile */
     color: white;
     overflow-x: hidden;
 }
@@ -47,12 +52,12 @@ body {
     transition: 0.3s;
 }
 
-/* ACTIVE LINK */
+/* ACTIVE */
 .nav-links li a.active {
     color: #f5c04a;
 }
 
-/* HOVER UNDERLINE */
+/* UNDERLINE */
 .nav-links li a::after {
     content: "";
     position: absolute;
@@ -74,7 +79,7 @@ body {
 
 /* HERO */
 .hero {
-    height: 85vh;
+    min-height: 85vh; /* ✅ instead of fixed height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +87,7 @@ body {
     padding: 20px;
 }
 
-/* FADE ANIMATION */
+/* ANIMATION */
 .content {
     animation: fadeIn 1.5s ease;
 }
@@ -135,7 +140,7 @@ body {
     transform: scale(1.08);
 }
 
-/* OWNER TEXT */
+/* OWNER */
 .owner {
     position: fixed;
     bottom: 10px;
@@ -143,12 +148,14 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 1px;
-    z-index: 1000;
 }
 
-/* MOBILE */
+/* 📱 MOBILE FIX */
 @media (max-width: 768px) {
+
+    body {
+        background-position: center top; /* important */
+    }
 
     .nav-links {
         gap: 25px;
@@ -210,14 +217,12 @@ body {
     </div>
 </section>
 
-<!-- OWNER -->
 <div class="owner">© 2026 Subodh Desai</div>
 
 <script>
 
-/* ACTIVE LINK HIGHLIGHT */
+/* ACTIVE LINK */
 const currentPage = window.location.pathname.split("/").pop();
-
 const links = document.querySelectorAll(".nav-links a");
 
 links.forEach(link => {
