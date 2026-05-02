@@ -41,7 +41,6 @@ body{
     flex-wrap:wrap;
 }
 
-/* NAV LINKS */
 .navbar a{
     position: relative;
     text-decoration:none;
@@ -51,12 +50,10 @@ body{
     transition:0.3s;
 }
 
-/* ACTIVE */
 .navbar .active{
     color:#f5c04a;
 }
 
-/* UNDERLINE */
 .navbar a::after{
     content:"";
     position:absolute;
@@ -76,15 +73,6 @@ body{
     width:100%;
 }
 
-/* SERVICES TITLE */
-.services-title{
-    text-align:center;
-    color:#f5c04a;
-    font-family:'Bebas Neue', sans-serif;
-    font-size:30px;
-    margin-top:20px;
-}
-
 /* SERVICES */
 .services{
     margin-top:80px;
@@ -93,27 +81,29 @@ body{
 /* ROW */
 .row{
     display:flex;
-    justify-content:space-evenly;
-    margin-bottom:80px;
-    flex-wrap:wrap;
-    gap:30px;
-}
-
-/* SECOND ROW */
-.second{
     justify-content:center;
-    gap:120px;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-bottom:60px;
 }
 
-/* BUTTON */
+/* BUTTON (FIXED SIZE) */
 .services button{
     background:#e8b84a;
     border:none;
-    padding:20px 80px;
-    font-size:22px;
+
+    width:260px;
+    height:70px;
+
+    font-size:20px;
     font-family:'Bebas Neue', sans-serif;
     cursor:pointer;
     transition:0.3s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 }
 
 .services button:hover{
@@ -185,7 +175,7 @@ body{
     color:black;
 }
 
-/* ✅ OWNER TEXT */
+/* OWNER */
 .owner{
     position:fixed;
     bottom:10px;
@@ -193,8 +183,6 @@ body{
     font-family:'Poppins', sans-serif;
     font-size:14px;
     color:rgba(255,255,255,0.7);
-    letter-spacing:1px;
-    z-index:1000;
 }
 
 /* MOBILE */
@@ -213,12 +201,10 @@ body{
     }
 
     .services button{
-        padding:15px 40px;
-        font-size:18px;
-    }
-
-    .second{
-        gap:40px;
+        width:100%;
+        max-width:300px;
+        height:60px;
+        font-size:16px;
     }
 
     .popup-content{
@@ -248,7 +234,7 @@ body{
         <button onclick="openPopup('cement')">CEMENT SHOP</button>
     </div>
 
-    <div class="row second">
+    <div class="row">
         <button onclick="openPopup('ply')">PLYWOODS</button>
         <button onclick="openPopup('bricks')">CONCRETE BRICKS</button>
     </div>
@@ -264,7 +250,6 @@ body{
     </div>
 </div>
 
-<!-- ✅ OWNER -->
 <div class="owner">© 2026 Subodh Desai</div>
 
 <script>
