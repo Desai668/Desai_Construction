@@ -51,12 +51,11 @@ body{
     transition:0.3s;
 }
 
-/* ACTIVE */
 .navbar .active{
     color:#f5c04a;
 }
 
-/* UNDERLINE HOVER */
+/* UNDERLINE */
 .navbar a::after{
     content:"";
     position:absolute;
@@ -76,7 +75,7 @@ body{
     width:100%;
 }
 
-/* MAIN CONTAINER */
+/* CONTAINER */
 .container{
     display:flex;
     justify-content:space-between;
@@ -85,27 +84,23 @@ body{
     padding:0 100px;
 }
 
-/* LEFT SIDE */
+/* LEFT */
 .left{
     display:flex;
     gap:40px;
     align-items:stretch;
 }
 
-/* IMAGE BOX */
 .image-box{
     width:220px;
-    height:100%;
 }
 
-/* IMAGE */
 .image-box img{
     width:110%;
     height:100%;
     object-fit:cover;
 }
 
-/* DETAILS */
 .details{
     font-family:'Poppins';
     font-size:24px;
@@ -115,7 +110,7 @@ body{
     justify-content:center;
 }
 
-/* FORM BOX */
+/* FORM */
 .form-box{
     background:#e3b64a;
     padding:40px;
@@ -126,7 +121,6 @@ body{
     min-height:420px;
 }
 
-/* FORM GROUP */
 .form-group{
     display:flex;
     justify-content:space-between;
@@ -134,19 +128,18 @@ body{
     margin-bottom:20px;
 }
 
-/* LABEL */
 .form-group label{
     font-family:'Bebas Neue';
     font-size:22px;
     color:black;
 }
 
-/* INPUT */
 .form-group input,
 .form-group textarea{
     width:60%;
     padding:10px;
     border:none;
+    outline:none;
 }
 
 /* BUTTON */
@@ -167,16 +160,14 @@ body{
     transform:scale(1.08);
 }
 
-/* ✅ OWNER TEXT ADDED */
+/* OWNER */
 .owner{
     position:fixed;
     bottom:10px;
     left:15px;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins';
     font-size:14px;
     color:rgba(255,255,255,0.7);
-    letter-spacing:1px;
-    z-index:1000;
 }
 
 /* MOBILE */
@@ -242,7 +233,6 @@ body{
 
     <!-- LEFT -->
     <div class="left">
-
         <div class="image-box">
             <img src="Images/earthmovers.png">
         </div>
@@ -253,7 +243,6 @@ body{
             <p>8979777097</p>
             <p>Ranebennur, Karnataka</p>
         </div>
-
     </div>
 
     <!-- RIGHT -->
@@ -262,22 +251,24 @@ body{
         <div>
             <div class="form-group">
                 <label>NAME</label>
-                <input type="text" id="name">
+                <input type="text" id="name" required>
             </div>
 
             <div class="form-group">
                 <label>PHONE NO</label>
-                <input type="text" id="phone">
+                <input type="text" id="phone" maxlength="10"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             </div>
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" id="email">
+                <input type="email" id="email" 
+                pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" required>
             </div>
 
             <div class="form-group">
                 <label>MESSAGE</label>
-                <textarea id="message"></textarea>
+                <textarea id="message" required></textarea>
             </div>
         </div>
 
@@ -287,23 +278,44 @@ body{
 
 </div>
 
-<!-- ✅ OWNER TEXT -->
 <div class="owner">© 2026 Subodh Desai</div>
 
 <script>
 
 function sendWhatsApp(){
 
-    let name=document.getElementById("name").value;
-    let phone=document.getElementById("phone").value;
-    let email=document.getElementById("email").value;
-    let message=document.getElementById("message").value;
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
 
-    if(!name || !phone){
-        alert("Please fill required fields");
+    // NAME
+    if(name === ""){
+        alert("Enter your name");
         return;
     }
 
+    // PHONE VALIDATION
+    let phonePattern = /^[0-9]{10}$/;
+    if(!phonePattern.test(phone)){
+        alert("Phone must be exactly 10 digits");
+        return;
+    }
+
+    // EMAIL VALIDATION
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if(!emailPattern.test(email)){
+        alert("Enter valid Gmail (example@gmail.com)");
+        return;
+    }
+
+    // MESSAGE
+    if(message === ""){
+        alert("Enter your message");
+        return;
+    }
+
+    // WHATSAPP MESSAGE
     let text = `New Enquiry:%0A
 Name: ${name}%0A
 Phone: ${phone}%0A
