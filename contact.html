@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* BODY */
+body{
+    background:url("Images/Background.png") no-repeat center/cover;
+    min-height:100vh;
+    color:white;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    font-family:'Bebas Neue';
+    font-size:70px;
+    color:#f5c04a;
+    margin-top:20px;
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:center;
+    gap:120px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+/* NAV LINKS */
+.navbar a{
+    position: relative;
+    text-decoration:none;
+    color:white;
+    font-family:'Bebas Neue';
+    font-size:28px;
+    transition:0.3s;
+}
+
+/* ACTIVE */
+.navbar .active{
+    color:#f5c04a;
+}
+
+/* UNDERLINE HOVER */
+.navbar a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:#f5c04a;
+    transition:0.4s;
+}
+
+.navbar a:hover{
+    color:#f5c04a;
+}
+
+.navbar a:hover::after{
+    width:100%;
+}
+
+/* MAIN CONTAINER */
+.container{
+    display:flex;
+    justify-content:space-between;
+    align-items:stretch;
+    margin-top:80px;
+    padding:0 100px;
+}
+
+/* LEFT SIDE */
+.left{
+    display:flex;
+    gap:40px;
+    align-items:stretch;
+}
+
+/* IMAGE BOX */
+.image-box{
+    width:220px;
+    height:100%;
+}
+
+/* IMAGE */
+.image-box img{
+    width:110%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* DETAILS */
+.details{
+    font-family:'Poppins';
+    font-size:24px;
+    line-height:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* FORM BOX */
+.form-box{
+    background:#e3b64a;
+    padding:40px;
+    width:450px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:420px;
+}
+
+/* FORM GROUP */
+.form-group{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+/* LABEL */
+.form-group label{
+    font-family:'Bebas Neue';
+    font-size:22px;
+    color:black;
+}
+
+/* INPUT */
+.form-group input,
+.form-group textarea{
+    width:60%;
+    padding:10px;
+    border:none;
+}
+
+/* BUTTON */
+.submit-btn{
+    display:block;
+    margin:30px auto 0;
+    padding:15px 50px;
+    border:none;
+    border-radius:30px;
+    background:#eee;
+    font-family:'Bebas Neue';
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.08);
+}
+
+/* ✅ OWNER TEXT ADDED */
+.owner{
+    position:fixed;
+    bottom:10px;
+    left:15px;
+    font-family:'Poppins', sans-serif;
+    font-size:14px;
+    color:rgba(255,255,255,0.7);
+    letter-spacing:1px;
+    z-index:1000;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .container{
+        flex-direction:column;
+        gap:40px;
+        padding:20px;
+    }
+
+    .navbar{
+        gap:30px;
+    }
+
+    .title{
+        font-size:40px;
+    }
+
+    .form-box{
+        width:100%;
+    }
+
+    .left{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .image-box{
+        width:100%;
+        height:250px;
+    }
+
+    .details{
+        text-align:center;
+    }
+
+    .form-group{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .form-group input,
+    .form-group textarea{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="title">CONSTRUCTION WEB PAGE</h1>
+
+<nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="services.html">SERVICES</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="contact.html" class="active">CONTACT</a>
+</nav>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div class="image-box">
+            <img src="Images/earthmovers.png">
+        </div>
+
+        <div class="details">
+            <p>Hi, I'm Desai</p>
+            <p>xyz@gmail.com</p>
+            <p>8979777097</p>
+            <p>Ranebennur, Karnataka</p>
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="form-box">
+
+        <div>
+            <div class="form-group">
+                <label>NAME</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="form-group">
+                <label>PHONE NO</label>
+                <input type="text" id="phone">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="form-group">
+                <label>MESSAGE</label>
+                <textarea id="message"></textarea>
+            </div>
+        </div>
+
+        <button class="submit-btn" onclick="sendWhatsApp()">SUBMIT</button>
+
+    </div>
+
+</div>
+
+<!-- ✅ OWNER TEXT -->
+<div class="owner">© 2026 Subodh Desai</div>
+
+<script>
+
+function sendWhatsApp(){
+
+    let name=document.getElementById("name").value;
+    let phone=document.getElementById("phone").value;
+    let email=document.getElementById("email").value;
+    let message=document.getElementById("message").value;
+
+    if(!name || !phone){
+        alert("Please fill required fields");
+        return;
+    }
+
+    let text = `New Enquiry:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Email: ${email}%0A
+Message: ${message}`;
+
+    let url = `https://wa.me/918904410988?text=${text}`;
+
+    window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>
